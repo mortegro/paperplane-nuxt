@@ -14,21 +14,21 @@
       input#plane.nes-input.is-error(type='text', v-model="item.plane")
     .nes-field.is-inline
       label(for='age') Alter (Jahre)
-      input#age.nes-input.is-warning(type='text', v-model="item.age")
+      input#age.nes-input.is-warning(type='number', v-model="item.age")
   .nes-container.with-title
     h3 Daten Flug
     .nes-field.is-inline
       label(for='design') Design
-      input#design.nes-input.is-warning(type='text', v-model="item.design")
+      input#design.nes-input.is-warning(type='number', v-model="item.design")
     .nes-field.is-inline(style="margin-top: 24px;")
       label(for='run1') Flug 1
-      input#run1.nes-input.is-success(type='text', v-model="item.run1")
+      input#run1.nes-input.is-success(type='number', v-model="item.run1")
     .nes-field.is-inline
       label(for='run2') Flug 2
-      input#run2.nes-input.is-success(type='text', v-model="item.run2")
+      input#run2.nes-input.is-success(type='number', v-model="item.run2")
     .nes-field.is-inline
       label(for='run3') Flug 3
-      input#run3.nes-input.is-success(type='text', v-model="item.run3")
+      input#run3.nes-input.is-success(type='number', v-model="item.run3")
   .nes-container#buttons
     button.nes-btn.is-success(type='button',@click="save") Speichern
     button.nes-btn.is-warning(type='button',@click="cancel") Cancel
