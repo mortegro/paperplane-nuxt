@@ -1,5 +1,5 @@
 <template lang="pug">
-.participant.nes-container.is-dark.member-card
+.participant.nes-container.is-dark.member-card(v-if="participant")
   .avatar
     img(:src="url")
   .name
@@ -16,7 +16,7 @@
     .nes-badge
       span.is-primary Design: {{participant.design}}
   .sum
-    h1 {{max}}
+    h1 {{sum}}
 
 
 </template>
@@ -25,9 +25,10 @@
 export default {
   components: {
   },
+  props: ["participant"],
   data() {
     return {
-      participant: {
+      demoparticipant: {
         name: "Emily",
         plane: "SuperFlyer",
         run1: 100,

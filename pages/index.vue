@@ -3,14 +3,15 @@
   header.head
     .container
       h1 Highscore
+  
   .kids.nes-container.with-title
     h3 Kinder (0-12)
-    Participant
-    Participant
+    Participant(v-for="participant in kids", :key="participant._id", :participant="participant")
 
   .youth.nes-container.with-title
     h3 Jugendliche (13-18)
-    Participant
+    Participant(v-for="participant in youth", :key="participant._id", :participant="participant")
+
 
 
 
@@ -19,7 +20,27 @@
 <script>
 import Participant from '@/components/participant'
 export default {
-  components: { Participant }
+  components: { Participant },
+  pouch: {
+    participants: {},
+    kids: function() {
+      return {
+        database: 'participants', // you can pass a database string or a pouchdb instance
+        selector: {age: { $lt:13 }},
+        sort: [{sum: "asc"}],
+      }
+    },
+    youth: function() {
+      return {
+        database: 'participants', // you can pass a database string or a pouchdb instance
+        selector: {age: { $gt:12 }},
+        sort: [{sum: "asc"}],
+      }
+    },
+  },
+  mounted() {
+    console.log(this.participants)
+  }
 }
 </script>
 

@@ -3,14 +3,14 @@ export default {
    ** Rendering mode
    ** Doc: https://nuxtjs.org/api/configuration-mode
    */
-  mode: "universal",
+  mode: "spa",
 
   /*
    ** Headers of the page
    ** Doc: https://vue-meta.nuxtjs.org/api/#metainfo-properties
    */
   head: {
-    title: "Nuxt.js starter for CSB",
+    title: "KinderStärken Paper Planes",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -33,7 +33,7 @@ export default {
    ** Plugins to load before mounting the App
    ** Doc: https://nuxtjs.org/guide/plugins
    */
-  plugins: ["@/plugins/vue-pouch"],
+  plugins: [{ src: "@/plugins/vue-pouch", ssr: false }],
 
   /*
    ** Nuxt.js modules
