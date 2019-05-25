@@ -1,7 +1,7 @@
 <template lang="pug">
 .participant.nes-container.is-dark.member-card(v-if="participant")
   .avatar
-    img(:src="url")
+    img.avatar-img(:src="url")
   .name
     h2 {{participant.name}}
   .plane
@@ -40,7 +40,8 @@ export default {
   },
   computed: {
     url() {
-      return `https://api.adorable.io/avatars/100/${this.participant.name}.png`
+      // return `https://api.adorable.io/avatars/100/${this.participant.name}.png`
+      return `https://robohash.org/${this.participant.name}`
     },
     sum() {
       const s = this.participant.design + this.max
@@ -83,6 +84,12 @@ export default {
 
 .sum {
   grid-area: sum;
+}
+
+.avatar-img {
+  border-radius: 30%;
+  height: 80px;
+  width: 80px;
 }
 
 </style>

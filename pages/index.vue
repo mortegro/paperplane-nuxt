@@ -1,8 +1,8 @@
 <template lang="pug">
 #highscore
   header.head
-    .container
-      h1 Highscore
+    .container.title
+      h1 Paperplane Highscore
   
   .kids.nes-container.with-title
     h3 Kinder (0-12)
@@ -11,10 +11,6 @@
   .youth.nes-container.with-title
     h3 Jugendliche (13-18)
     Participant(v-for="participant in youth", :key="participant._id", :participant="participant")
-
-
-
-
 </template>
 
 <script>
@@ -27,14 +23,14 @@ export default {
       return {
         database: 'participants', // you can pass a database string or a pouchdb instance
         selector: {age: { $lt:13 }},
-        sort: [{sum: "asc"}],
+        sort: [{sum: "desc"}],
       }
     },
     youth: function() {
       return {
         database: 'participants', // you can pass a database string or a pouchdb instance
         selector: {age: { $gt:12 }},
-        sort: [{sum: "asc"}],
+        sort: [{sum: "desc"}],
       }
     },
   },
@@ -58,6 +54,13 @@ export default {
   grid-area: header;
 }
 
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 3rem;
+}
 .kids {
   grid-area: kids;
 }
